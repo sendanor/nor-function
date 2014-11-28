@@ -1,0 +1,24 @@
+{
+  "name": "nor-function",
+  "version": "0.1.0",
+  "description": "Function utilities for JavaScript and Node.js",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sendanor/nor-function.git"
+  },
+  "keywords": [
+    "function",
+    "serialize",
+    "unserialize"
+  ],
+  "author": "Jaakko-Heikki Heusala <jheusala@iki.fi>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sendanor/nor-function/issues"
+  },
+  "homepage": "https://github.com/sendanor/nor-function"
+}
