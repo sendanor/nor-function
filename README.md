@@ -13,7 +13,7 @@ Install from NPM: `npm install -d nor-function`
 ```
 var FUNCTION = require("nor-function");
 function foo(a, b) { return a + b; }
-var str = FUNCTION.toString(foo);
+var str = FUNCTION.stringify(foo);
 str === "function foo(a, b) { return a + b; }";
 ```
 
@@ -22,7 +22,7 @@ str === "function foo(a, b) { return a + b; }";
 ```
 var FUNCTION = require("nor-function");
 var str = "function foo(a, b) { return a + b; }";
-var fun = FUNCTION.toFunction(str);
+var fun = FUNCTION.parse(str);
 fun(10, 20) === 30;
 ```
 
