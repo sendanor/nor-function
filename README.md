@@ -25,3 +25,8 @@ var str = "function foo(a, b) { return a + b; }";
 var fun = FUNCTION.toFunction(str);
 fun(10, 20) === 30;
 ```
+
+License
+-------
+
+[MIT-style](LICENSE)
