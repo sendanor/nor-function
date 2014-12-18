@@ -1,10 +1,11 @@
 {
   "name": "nor-function",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Function utilities for JavaScript and Node.js",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jshint": "jshint src/"
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,10 @@
     "serialize",
     "unserialize"
   ],
+  "optionalDependencies": {
+    "lint"         : "*",
+    "jshint"       : "*"
+  },
   "author": "Jaakko-Heikki Heusala <jheusala@iki.fi>",
   "license": "MIT",
   "bugs": {

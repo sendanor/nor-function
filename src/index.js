@@ -1,43 +1,35 @@
 /* Function Helpers */
 "use strict";
 
+var bind = require('./bind.js');
+var curry = require('./curry.js');
+var stringify = require('./stringify.js');
+var parse = require('./parse.js');
+
+function FUNCTION(f) {
+	return {
+		"bind": bind(f),
+		"curry": curry(f),
+		"stringify": function() {
+			return stringify(f);
+		},
+		"parse": function() {
+			return parse(f);
+		}
+	};
+}
+
 //var debug = require('nor-debug');
-var FUNCTION = module.exports = {};
+FUNCTION.toString = stringify;
+FUNCTION.stringify = stringify;
 
-/** Serialize JavaScript function as string.
- * @param f {function} The function to be serialized.
- * @returns {string} The function serialized to JavaScript string.
- */
-FUNCTION.toString = function function_toString(f) {
-	if(!(f && (f instanceof Function))) {
-		throw new TypeError("argument is not Function");
-	}
-	var s = ''+f;
+FUNCTION.toFunction = parse;
+FUNCTION.parse = parse;
 
-	if(s.substr(0, 8) !== 'function') {
-		throw new TypeError('Failed to serialize function: ' + f);
-	}
+FUNCTION.bind = bind;
+FUNCTION.curry = curry;
 
-	return s;
-};
-
-FUNCTION.stringify = FUNCTION.toString;
-
-/** Covert stringified function to JavaScript function.
- * @param s {string} The string containing code for JavaScript function.
- * @returns {function} The unserialized JavaScript function.
- */
-FUNCTION.toFunction = function function_parse(s) {
-	s = ''+s;
-
-	if(s.substr(0, 8) !== 'function') {
-		throw new TypeError('Invalid input: ' + s);
-	}
-
-	/*jslint evil: true */
-	return new Function('return (' + s + ')')();
-};
-
-FUNCTION.parse = FUNCTION.toFunction;
+// Exports
+module.exports = FUNCTION;
 
 /* EOF */
