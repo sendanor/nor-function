@@ -4,7 +4,15 @@
   "description": "Function utilities for JavaScript and Node.js",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test-spec",
+    "test-dot": "mocha -u bdd -c -R dot tests/test-*.js",
+    "test-list": "mocha -u bdd -c -R list tests/test-*.js",
+    "test-spec": "mocha -u bdd -c -R spec tests/test-*.js",
+    "test-progress": "mocha -u bdd -c -R progress tests/test-*.js",
+    "test-min": "mocha -u bdd -c -R min tests/test-*.js",
+    "test-markdown": "mocha -u bdd -c -R markdown tests/test-*.js",
+    "build-tests.md": "npm run test-markdown > tests.md",
+    "lint": "node-lint src/ --config=lint.json",
     "jshint": "jshint src/"
   },
   "repository": {
@@ -17,6 +25,9 @@
     "unserialize"
   ],
   "optionalDependencies": {
+    "nor-debug"    : ">= 0.1.46 < 0.2.0",
+    "nor-is"       : ">= 0.1.15 < 0.2.0",
+    "mocha"        : "*",
     "lint"         : "*",
     "jshint"       : "*"
   },
