@@ -4,6 +4,7 @@
 var bind = require('./bind.js');
 var abind = require('./abind.js');
 var curry = require('./curry.js');
+var acurry = require('./acurry.js');
 var stringify = require('./stringify.js');
 var parse = require('./parse.js');
 var parseName = require('./parseName.js');
@@ -13,6 +14,7 @@ function FUNCTION(f) {
 		"bind": bind(f),
 		"abind": abind(f),
 		"curry": curry(f),
+		"acurry": acurry(f),
 		"stringify": function() {
 			return stringify(f);
 		},
