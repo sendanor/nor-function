@@ -5,6 +5,7 @@ var bind = require('./bind.js');
 var curry = require('./curry.js');
 var stringify = require('./stringify.js');
 var parse = require('./parse.js');
+var parseName = require('./parseName.js');
 
 function FUNCTION(f) {
 	return {
@@ -25,6 +26,8 @@ FUNCTION.stringify = stringify;
 
 FUNCTION.toFunction = parse;
 FUNCTION.parse = parse;
+
+FUNCTION.parseName = parseName;
 
 FUNCTION.bind = bind;
 FUNCTION.curry = curry;
