@@ -3,8 +3,8 @@
 
 /** Returns faster Function.prototype.bind() implementation for arguments from 1 to 3 without support for `this`
 */
-module.exports = function(f) {
-	return function() {
+module.exports = function array_curry(f) {
+	return function array_curry_() {
 		var l = arguments.length;
 
 		if(l < 0) {
@@ -12,7 +12,7 @@ module.exports = function(f) {
 		}
 
 		if(l === 0) {
-			return function() {
+			return function array_curry_l0() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f(); }
 				if(l2 === 1) { return f(arguments[0]); }
@@ -26,7 +26,7 @@ module.exports = function(f) {
 
 		var a1 = arguments[0];
 		if(l === 1) {
-			return function() {
+			return function array_curry_l1() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f(a1); }
 				if(l2 === 1) { return f(a1, arguments[0]); }
@@ -40,7 +40,7 @@ module.exports = function(f) {
 
 		var a2 = arguments[1];
 		if(l === 2) {
-			return function() {
+			return function array_curry_l2() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f(a1, a2); }
 				if(l2 === 1) { return f(a1, a2, arguments[0]); }
@@ -54,7 +54,7 @@ module.exports = function(f) {
 
 		var a3 = arguments[2];
 		if(l === 3) {
-			return function() {
+			return function array_curry_l3() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f(a1, a2, a3); }
 				if(l2 === 1) { return f(a1, a2, a3, arguments[0]); }
@@ -68,7 +68,7 @@ module.exports = function(f) {
 
 		var a4 = arguments[3];
 		if(l === 4) {
-			return function() {
+			return function array_curry_l4() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f(a1, a2, a3, a4); }
 				if(l2 === 1) { return f(a1, a2, a3, a4, arguments[0]); }
@@ -82,7 +82,7 @@ module.exports = function(f) {
 
 		var a5 = arguments[4];
 		if(l === 5) {
-			return function() {
+			return function array_curry_l5() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f(a1, a2, a3, a4, a5); }
 				if(l2 === 1) { return f(a1, a2, a3, a4, a5, arguments[0]); }

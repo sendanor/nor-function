@@ -3,8 +3,8 @@
 
 /** Returns faster Function.bind() implementation for arguments from 1 to 4 (including the first self)
 */
-module.exports = function(f) {
-	return function(self) {
+module.exports = function array_bind(f) {
+	return function array_bind_(self) {
 		var l = arguments.length;
 
 		if(l <= 0) {
@@ -12,7 +12,7 @@ module.exports = function(f) {
 		}
 
 		if(l === 1) {
-			return function() {
+			return function array_bind_l1() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f.call(self); }
 				if(l2 === 1) { return f.call(self, arguments[0]); }
@@ -26,7 +26,7 @@ module.exports = function(f) {
 
 		var a1 = arguments[1];
 		if(l === 2) {
-			return function() {
+			return function array_bind_l2() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f.call(self, a1); }
 				if(l2 === 1) { return f.call(self, a1, arguments[0]); }
@@ -40,7 +40,7 @@ module.exports = function(f) {
 
 		var a2 = arguments[2];
 		if(l === 3) {
-			return function() {
+			return function array_bind_l3() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f.call(self, a1, a2); }
 				if(l2 === 1) { return f.call(self, a1, a2, arguments[0]); }
@@ -54,7 +54,7 @@ module.exports = function(f) {
 
 		var a3 = arguments[3];
 		if(l === 4) {
-			return function() {
+			return function array_bind_l4() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f.call(self, a1, a2, a3); }
 				if(l2 === 1) { return f.call(self, a1, a2, a3, arguments[0]); }
@@ -67,8 +67,8 @@ module.exports = function(f) {
 		}
 
 		var a4 = arguments[4];
-		if(l === 4) {
-			return function() {
+		if(l === 5) {
+			return function array_bind_l5() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f.call(self, a1, a2, a3, a4); }
 				if(l2 === 1) { return f.call(self, a1, a2, a3, a4, arguments[0]); }
@@ -81,8 +81,8 @@ module.exports = function(f) {
 		}
 
 		var a5 = arguments[5];
-		if(l === 5) {
-			return function() {
+		if(l === 6) {
+			return function array_bind_l6() {
 				var l2 = arguments.length;
 				if(l2 === 0) { return f.call(self, a1, a2, a3, a4, a5); }
 				if(l2 === 1) { return f.call(self, a1, a2, a3, a4, a5, arguments[0]); }
