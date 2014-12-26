@@ -5,7 +5,9 @@
  * @param f {function} The function to be serialized.
  * @returns {string} The function serialized to JavaScript string.
  */
-module.exports = function function_toString(f) {
+module.exports = function function_toString() {
+	var f = this.f;
+
 	if(!(f && (f instanceof Function))) {
 		throw new TypeError("argument is not Function");
 	}

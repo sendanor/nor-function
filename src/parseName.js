@@ -1,11 +1,11 @@
 
 "use strict";
 
-var debug = require('nor-debug');
+//var debug = require('nor-debug/src/code.js');
 
 /** Returns the name of function `f` */
-module.exports = function(f) {
-	debug.assert(f).is('function');
+module.exports = function() {
+	var f = this.f;
 	var ret = f.toString();
 	ret = ret.substr('function '.length);
 	ret = ret.substr(0, ret.indexOf('('));
