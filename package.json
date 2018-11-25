@@ -1,6 +1,6 @@
 {
   "name": "nor-function",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Function utilities for JavaScript and Node.js",
   "main": "src/index.js",
   "scripts": {
@@ -24,12 +24,12 @@
     "serialize",
     "unserialize"
   ],
-  "optionalDependencies": {
-    "nor-debug"    : "^1.0.0",
-    "nor-is"       : "^1.0.0",
-    "mocha"        : "^2.5.3",
-    "lint"         : "^1.1.2",
-    "jshint"       : "^2.9.2"
+  "devDependencies": {
+    "jshint": "^2.9.2",
+    "lint": "^1.1.2",
+    "mocha": "^5.2.0",
+    "nor-debug": "^1.0.1",
+    "nor-is": "^1.0.1"
   },
   "author": "Jaakko-Heikki Heusala <jheusala@iki.fi>",
   "license": "MIT",

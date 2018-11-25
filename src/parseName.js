@@ -1,8 +1,6 @@
 
 "use strict";
 
-//var debug = require('nor-debug/src/code.js');
-
 /** Returns the name of function `f` */
 module.exports = function() {
 	var f = this.f;

@@ -1,7 +1,21 @@
 /* Function Helpers */
 "use strict";
 
-var debug = require('nor-debug/src/core.js');
+/**
+ *
+ * @param file
+ * @param defaultValue
+ * @returns {*}
+ */
+function safe_require (file, defaultValue=undefined) {
+	try {
+		return require(file);
+	} catch (err) {
+		return defaultValue;
+	}
+}
+
+var debug = safe_require('nor-debug/src/core.js');
 
 /** Constructor for our function object */
 function NorFunction(f) {
@@ -28,30 +42,66 @@ function FUNCTION(f) {
 
 FUNCTION.parse = require('./parse.js');
 
+/**
+ * FUNCTION.toFunction(s) is obsolete, use FUNCTION.parse(s)
+ *
+ * @param s
+ * @returns {Function}
+ * @obsolete
+ */
 FUNCTION.toFunction = function toFunction(s) {
-	debug.warn("FUNCTION.toFunction(s) is obsolete, use FUNCTION.parse(s)");
+	if (debug) debug.warn("FUNCTION.toFunction(s) is obsolete, use FUNCTION.parse(s)");
 	return FUNCTION.parse(s);
 };
 
+/**
+ * FUNCTION.stringify(f) is obsolete, use FUNCTION(f).stringify()
+ *
+ * @param f
+ * @returns {string|s}
+ * @obsolete
+ */
 FUNCTION.stringify = function stringify(f) {
-	debug.warn("FUNCTION.stringify(f) is obsolete, use FUNCTION(f).stringify()");
+	if (debug) debug.warn("FUNCTION.stringify(f) is obsolete, use FUNCTION(f).stringify()");
 	return FUNCTION(f).stringify();
 };
 
+/**
+ * FUNCTION.toString(f) is obsolete, use FUNCTION(f).stringify()
+ *
+ * @param f
+ * @returns {string|s}
+ * @obsolete
+ */
 FUNCTION.toString = function toString(f) {
-	debug.warn("FUNCTION.toString(f) is obsolete, use FUNCTION(f).stringify()");
+	if (debug) debug.warn("FUNCTION.toString(f) is obsolete, use FUNCTION(f).stringify()");
 	return FUNCTION(f).stringify();
 };
 
+/**
+ * FUNCTION.parseName(f) is obsolete, use FUNCTION(f).parseName()
+ *
+ * @param f
+ * @returns {*|ret}
+ * @obsolete
+ */
 FUNCTION.parseName = function parse_name(f) {
-	debug.warn("FUNCTION.parseName(f) is obsolete, use FUNCTION(f).parseName()");
+	if (debug) debug.warn("FUNCTION.parseName(f) is obsolete, use FUNCTION(f).parseName()");
 	return FUNCTION(f).parseName();
 };
 
+/**
+ * FUNCTION.bind(f) is obsolete, use FUNCTION(f).bind()
+ * @obsolete
+ */
 FUNCTION.bind = function() {
 	throw new TypeError("FUNCTION.bind(f) is obsolete, use FUNCTION(f).bind()!");
 };
 
+/**
+ * FUNCTION.curry(f) is obsolete, use FUNCTION(f).curry()
+ * @obsolete
+ */
 FUNCTION.curry = function() {
 	throw new TypeError("FUNCTION.curry(f) is obsolete, use FUNCTION(f).curry()!");
 };
