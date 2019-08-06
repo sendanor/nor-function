@@ -7,7 +7,7 @@
  * @param defaultValue
  * @returns {*}
  */
-function safe_require (file, defaultValue=undefined) {
+function safe_require (file, defaultValue) {
 	try {
 		return require(file);
 	} catch (err) {
